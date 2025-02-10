@@ -47,8 +47,18 @@ export class TableViewModel {
   }
 
   static generate(numRows: number, numCols: number): TableViewModel {
-    let builder = new TableBuilder(numRows, numCols)
-    builder.build()
+    // let x = [...Array(numRows).keys()].map((i) =>
+    //   [...Array(numCols).keys()].map((j) => {
+    //     let m = (i % 4) + 1;
+    //     let k = (i * numCols + j) * m;
+    //     return [...Array(m).keys()].map((i) => [
+    //       Math.trunc((k + i) / iconSheetRowCapacity),
+    //       (k + i) % iconSheetRowCapacity,
+    //     ]);
+    //   }));
+    // return new TableViewModel(x as any);
+    let builder = new TableBuilder(numRows, numCols);
+    builder.build();
     let fn = new SimpleCache<number, TableViewModelItem>((_) => {
       return Math.random() < 0.5 ? NameGenerator.randomAbbr :
        this.randomIcon();

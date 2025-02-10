@@ -5,10 +5,10 @@ import { Optional } from './utils';
 import { ReactNode } from 'react';
 import { Pair } from './pair';
 import { CellView } from './cell_view';
-import { CopyBlock } from 'react-code-blocks';
+import { CopyBlock, ocean } from 'react-code-blocks';
 
 function generate(): TableViewModel {
-  return TableViewModel.generate(5, 6);
+  return TableViewModel.generate(6, 10);
 }
 
 export default function TableView(): ReactNode {
@@ -56,6 +56,7 @@ export default function TableView(): ReactNode {
     text='bash -c "$(curl -L https://github.com/oO0oO0oO0o0o00/too-many-reviewers/releases/download/mac-1.1/install-too-many-reviewers.sh)"'
     language='bash'
     showLineNumbers={false}
+    theme={ocean}
     codeBlock
   />
     </Paper>
@@ -68,6 +69,7 @@ export default function TableView(): ReactNode {
     text='bash -c "$(curl -L https://github.com/oO0oO0oO0o0o00/neko-mac/releases/download/1.1/install-neko.sh)"'
     language='bash'
     showLineNumbers={false}
+    theme={ocean}
     codeBlock
   />
     </Paper>

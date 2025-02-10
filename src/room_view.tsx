@@ -24,10 +24,12 @@ export function RoomView({ item, className }: RoomViewProps): Optional<ReactNode
   } else if (Array.isArray(item)) {
     return <div className={className}>
       <div className='avatar-wrapper'>
-        <Image src={avatars} alt='avatars' style={{
-          top: `${-item[0] * 100}%`,
-          left: `${-item[1] * 100}%`,
-        }}/>
+        <div className='avatar-box'>
+          <Image src={avatars} alt='avatars' style={{
+            top: `${-item[0] * 100}%`,
+            left: `${-item[1] * 100}%`,
+          }}/>
+        </div>
       </div>
     </div>
   }

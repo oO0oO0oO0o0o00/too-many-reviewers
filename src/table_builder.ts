@@ -34,18 +34,10 @@ export class TableBuilder {
         const pos = this.boundaries.get(0)!;
         const neighbor = Pos$fourDirections
           .map(dir => new Pair(pos.first + dir.first, pos.second + dir.second))
-          .find(neighbor => this.occupied.has(neighbor));
-
-        if (neighbor && this._grid[neighbor.first][neighbor.second].length < 3) {
-          this._grid[neighbor.first][neighbor.second].push(id);
-          this.add(pos, [id]);
-          id++;
-        } else if (neighbor) {
-          const lastId = this._grid[neighbor.first][neighbor.second].pop();
-          if (lastId !== undefined) {
-            this.add(pos, [lastId]);
-          }
-        }
+          .find(neighbor => this.occupied.has(neighbor)) ?? Pos$fourDirections[0];
+        this._grid[neighbor.first][neighbor.second].push(id);
+        this.add(pos, [id]);
+        id++;
         continue;
       }
 
