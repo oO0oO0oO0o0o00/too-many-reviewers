@@ -30,13 +30,130 @@ body {
   margin: 0;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
+}
+
+pre, code {
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.zstack {
+  position: relative;
+}
+
+.cell-grid {
+  width: 50px;
+  height: 50px;
+}
+
+.zstack>* {
+  position: absolute;
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%;
+}
+
+.cell-container,
+.cell-full,
+.cell-half,
+.cell-quarter,
+.cell-d-v,
+.cell-d-v  {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.cell-container-border {
+  padding: 1px;
+  border: 1px solid #bbbbbb;
+  border-radius: 50%;
+  width: 100%; 
+  height: 100%;
+}
+
+.cell-container-border.selected {
+  border-color: #0a0a0a;
+}
+
+.cell-container-wrapper {
+  padding: 3px;
+  width: 100%; 
+  height: 100%;
+}
+
+.cell-container {
+  width: 100%; 
+  height: 100%;
+  clip-path: circle(50%);
+}
+
+.cell-full {
+  width: 100%;
+  height: 100%;
+  font-size: small;
+  flex-direction: row;
+  flex: 1;
+  align-items: center;
+}
+
+.cell-half {
+  width: 50%;
+  height: 100%;
+  font-size: 8;
+  flex-direction: column;
+  flex: 1;
+}
+
+.cell-quarter {
+  width: 100%;
+  height: 50%;
+  font-size: 8;
+  flex: 1;
+}
+
+.cell-d-v,
+.cell-d-h {
+  background-color: #bbbbbb;
+}
+
+.cell-d-v {
+  width: 1px;
+  height: 100%;
+}
+
+.cell-d-h {
+  height: 1px;
+  width: 100%;
+}
+
+.avatar-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.avatar-wrapper>* {
+  position: absolute;
+  width: auto;
+  height: 1100%;
+  object-fit: cover;
+}
+
+.segment {
+  width: 100%;
+  height: 100%;
+}
+
+.segment path {
+  fill: none;
+  stroke: black;
+  stroke-width: 2;
 }
