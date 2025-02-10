@@ -51,9 +51,19 @@ export default function TableView(): ReactNode {
     </Center>
     <Space h="md"/>
     <Paper shadow="xs" p="xl">
+      <Text>终端执行以下命令安装 Mac 版，体验完整功能～ 最大 14x8</Text>
+      <CopyBlock
+    text='bash -c "$(curl -L https://github.com/oO0oO0oO0o0o00/too-many-reviewers/releases/download/mac-1.1/install-too-many-reviewers.sh)"'
+    language='bash'
+    showLineNumbers={false}
+    codeBlock
+  />
+    </Paper>
+    <Space h="md"/>
+    <Paper shadow="xs" p="xl">
       <Text>想要追鼠标的小猫?</Text>
-      <Text> - 在你的 Web 页面使用：<a href="https://github.com/adryd325/oneko.js" target='_blank'>https://github.com/adryd325/oneko.js</a></Text>
-      <Text> - 终端执行以下命令安装 Mac 版</Text>
+      <Text> - 可以在你的网站上使用：<a href="https://github.com/adryd325/oneko.js" target='_blank'>https://github.com/adryd325/oneko.js</a></Text>
+      <Text> - 或者，终端执行以下命令安装 Mac 版</Text>
       <CopyBlock
     text='bash -c "$(curl -L https://github.com/oO0oO0oO0o0o00/neko-mac/releases/download/1.1/install-neko.sh)"'
     language='bash'
