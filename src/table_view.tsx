@@ -1,4 +1,4 @@
-import { Button, Center, Container, Divider, Group, Paper, Space, Stack, Text } from '@mantine/core';
+import { Button, Center, Container, Group, Paper, Space, Stack, Text } from '@mantine/core';
 import { useImmer } from "use-immer";
 import { PathSegmentKind, TableViewModel } from "./table_viewmodel";
 import { Optional } from './utils';
@@ -6,10 +6,16 @@ import { ReactNode } from 'react';
 import { Pair } from './pair';
 import { CellView } from './cell_view';
 import { CopyBlock, ocean } from 'react-code-blocks';
+import { Params } from './params';
 
 function generate(): TableViewModel {
-  const [numRows, numCols] = window?.innerWidth < 600 ? [8, 6] : [6, 10];
-  return TableViewModel.generate(numRows, numCols);
+  const isMeow = new Params().isMeow;
+  if (isMeow) {
+    document.title = "🐱 Too Many Kittens";
+  }
+  const numCols = Math.min(Math.floor(window.innerWidth / 61), 12);
+  const numRows = numCols <= 8 ? 8 : 6;
+  return TableViewModel.generate(numRows, numCols, isMeow);
 }
 
 export default function TableView(): ReactNode {
@@ -29,7 +35,7 @@ export default function TableView(): ReactNode {
     );
     return <Group key={`row-${rowId}`} gap={0}>{cols}</Group>
   });
-  return <Container>
+  return <Container style={{padding: 0}}>
     {/* <Group>
       {['horizontal',
 'vertical',

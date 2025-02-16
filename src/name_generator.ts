@@ -4,10 +4,18 @@ const kFirstNameChars = "哲梁谦炎蓓茜眉才丽旭志妍娴以裕成红瑾�
 
 const kFamilyNameChars = "赵钱孙李周吴郑王冯陈褚卫蒋沈韩杨朱秦尤许何吕施张孔曹严华金魏陶姜戚谢邹喻柏水窦章云苏潘葛奚范彭郎鲁韦昌马苗凤花方俞任袁柳酆鲍史唐费廉岑薛雷贺倪汤滕殷罗毕郝邬安常乐于时傅皮卞齐康伍余元卜顾孟平黄和穆萧尹姚邵湛汪祁毛禹狄米贝明臧计伏成戴谈宋茅庞";
 
+const kKittenNameChars = "苗猫喵咪汪";
+
+const kKittenPrefixChars = "小大笨蠢萌乖傻懒啾呜阿咱暖冷凉呆坏魔神疯梦软肥胖云困尐";
+
 const kAbbrPrefixChars = kFamilyNameChars + kFirstNameChars;
 
 export class NameGenerator {
-    static get randomAbbr(): string {
+    static randomAbbr(): string {
         return `${U.randomChar(kAbbrPrefixChars)}${U.randomChar(kFirstNameChars)!}`;
+    }
+
+    static randomKit(): string {
+        return `${U.randomChar(kKittenPrefixChars)}${U.randomChar(kKittenNameChars)!}`;
     }
 }

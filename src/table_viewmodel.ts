@@ -46,7 +46,9 @@ export class TableViewModel {
     this.colIndices = items.length == 0 ? [] : [...items[0].keys()];
   }
 
-  static generate(numRows: number, numCols: number): TableViewModel {
+  static generate(
+    numRows: number, numCols: number, isMeow: boolean
+  ): TableViewModel {
     // let x = [...Array(numRows).keys()].map((i) =>
     //   [...Array(numCols).keys()].map((j) => {
     //     let m = (i % 4) + 1;
@@ -60,10 +62,11 @@ export class TableViewModel {
     let builder = new TableBuilder(numRows, numCols);
     builder.build();
     let covered = new OSet();
+    const randomName = isMeow ? NameGenerator.randomKit : NameGenerator.randomAbbr;
     let fn = new SimpleCache<number, TableViewModelItem>((_) => {
       while (true) {
         const next = Math.random() < 0.5 ?
-          NameGenerator.randomAbbr : this.randomIcon();
+          randomName() : this.randomIcon();
         if (covered.add(next)) { return next; }
       }
     });
