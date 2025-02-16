@@ -59,9 +59,13 @@ export class TableViewModel {
     // return new TableViewModel(x as any);
     let builder = new TableBuilder(numRows, numCols);
     builder.build();
+    let covered = new OSet();
     let fn = new SimpleCache<number, TableViewModelItem>((_) => {
-      return Math.random() < 0.5 ? NameGenerator.randomAbbr :
-       this.randomIcon();
+      while (true) {
+        const next = Math.random() < 0.5 ?
+          NameGenerator.randomAbbr : this.randomIcon();
+        if (covered.add(next)) { return next; }
+      }
     });
     return new TableViewModel(builder.grid.map((row) => {
       return row.map((ids) => {
